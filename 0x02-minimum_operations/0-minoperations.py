@@ -1,12 +1,22 @@
 #!/usr/bin/python3
 """
-testing
+Minimum Operations
 """
 
-minOperations = __import__('0-minoperations').minOperations
 
-n = 4
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+def minOperations(n):
+    """
+    there is a single character H.
+    """
 
-n = 12
-print("Min # of operations to reach {} char: {}".format(n, minOperations(n)))
+    if n <= 1:
+        return 0
+    numb, div, numOfOperations = n, 2, 0
+
+    while numb > 1:
+        if numb % div == 0:
+            numb = numb / div
+            numOfOperations = numOfOperations + div
+        else:
+            div += 1
+    return numOfOperations
